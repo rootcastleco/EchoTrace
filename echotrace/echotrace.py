@@ -8,6 +8,7 @@ from system behavior.
 import time
 import signal
 import sys
+import numpy as np
 from typing import Dict, Any, Optional
 from .monitors import CPUMonitor, NetworkMonitor, SensorMonitor, TimingMonitor
 from .sound_engine import SoundEngine
@@ -150,7 +151,6 @@ class EchoTrace:
             # Save audio if requested
             if output_file and self.sound_history:
                 print(f"\nSaving audio to {output_file}...")
-                import numpy as np
                 full_audio = np.concatenate(self.sound_history)
                 self.sound_engine.save_audio(full_audio, output_file)
                 print(f"Saved {len(self.sound_history)} samples ({len(full_audio)/self.sound_engine.sample_rate:.1f}s)")

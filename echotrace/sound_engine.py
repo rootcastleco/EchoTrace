@@ -6,11 +6,8 @@ Converts system metrics into sound signatures using audio synthesis.
 
 import numpy as np
 import wave
-import struct
-import threading
-import queue
 import time
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 
 
 class SoundEngine:
@@ -27,8 +24,6 @@ class SoundEngine:
     def __init__(self, sample_rate: int = 22050, channels: int = 1):
         self.sample_rate = sample_rate
         self.channels = channels
-        self.playing = False
-        self.audio_queue = queue.Queue(maxsize=10)
         self.base_frequency = 440.0  # A4 note
         
     def generate_tone(self, frequency: float, duration: float, amplitude: float = 0.3) -> np.ndarray:
