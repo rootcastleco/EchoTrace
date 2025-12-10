@@ -1,0 +1,3 @@
+# Core dependencies for EchoTrace
+psutil>=5.9.0       # System monitoring
+numpy>=1.24.0       # Audio signal processing
